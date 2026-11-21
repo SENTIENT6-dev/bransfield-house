@@ -200,6 +200,11 @@ tbody th { font-weight: 600; white-space: nowrap; }
 .contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
+/* Jump link to the emergencies panel (contact page) */
+.emergency-jump { display: inline-flex; align-items: center; gap: 10px; margin-top: 1.5em; padding: 12px 20px; border-radius: 999px; background: var(--brick); color: #fff; font-weight: 600; text-decoration: none; }
+.emergency-jump:hover { background: var(--brick-dark); color: #fff; }
+.emergency-jump span { font-size: 1.25em; line-height: 1; }
+
 /* Emergencies panel (contact page) */
 .emergency { margin-top: 16px; padding: clamp(20px, 3vw, 32px); border: 1px solid var(--brick); border-radius: var(--radius); background: var(--surface); }
 .emergency-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 32px; margin-bottom: 20px; }
