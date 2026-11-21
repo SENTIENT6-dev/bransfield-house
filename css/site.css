@@ -197,9 +197,25 @@ tbody th { font-weight: 600; white-space: nowrap; }
 .section.tint .callout { background: var(--paper); }
 
 /* Contact cards */
-.contact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 1120px) { .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* Emergencies panel (contact page) */
+.emergency { margin-top: 16px; padding: clamp(20px, 3vw, 32px); border: 1px solid var(--brick); border-radius: var(--radius); background: var(--surface); }
+.emergency-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 32px; margin-bottom: 20px; }
+.emergency-head h2 { margin: 0 0 2px; font-size: 1.7rem; }
+.emergency-head p { margin: 0; font-weight: 600; }
+.emergency-head .big-link { font-size: 1.9rem; }
+.emergency-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.e-col { padding: 20px 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.e-col.e-911 { border-color: #e3bcab; background: #faece5; }
+.e-col h3 { margin: 0 0 2px; font: 600 1.2rem var(--sans); }
+.e-col .when { margin: 0 0 12px; color: var(--muted); font-size: 0.95rem; }
+.e-col ul { margin: 0 0 12px; }
+.e-col .then { margin: 0; font-weight: 600; }
+.e-fallback { margin: 18px 0 0; color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 700px) { .emergency-cols { grid-template-columns: 1fr; } }
+a[href^="tel:"] { white-space: nowrap; }
 .contact-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .contact-card.alert { border-color: var(--brick); }
 .contact-card h2 { font-size: 1.5rem; margin-bottom: 0.25em; }
