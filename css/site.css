@@ -197,10 +197,15 @@ tbody th { font-weight: 600; white-space: nowrap; }
 .section.tint .callout { background: var(--paper); }
 
 /* Contact cards */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+.contact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1120px) { .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
 .contact-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .contact-card.alert { border-color: var(--brick); }
-.contact-card h2 { font-size: 1.5rem; }
+.contact-card h2 { font-size: 1.5rem; margin-bottom: 0.25em; }
+.contact-card .who { margin: 0 0 0.6em; font-weight: 600; }
+.contact-card .who span { display: block; color: var(--muted); font-size: 0.92rem; font-weight: 400; }
+.contact-card h2 + .big-link { display: inline-block; margin-top: 0.3em; }
 .contact-card dl { margin: 0; }
 .contact-card dt { margin-top: 14px; color: var(--muted); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-card dd { margin: 2px 0 0; }
