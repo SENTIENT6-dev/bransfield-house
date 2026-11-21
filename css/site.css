@@ -15,7 +15,7 @@
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --wrap: 1120px;
+  --wrap: 1200px;
   --gutter: clamp(16px, 4vw, 32px);
   --radius: 10px;
   color-scheme: light;
@@ -105,14 +105,20 @@ li { margin-bottom: 0.4em; }
 .btn.ghost:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.6em; }
 
-/* Home hero */
-.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: stretch; border-bottom: 1px solid var(--line); }
-.hero-text { display: flex; flex-direction: column; justify-content: center; padding: clamp(40px, 7vw, 96px) var(--gutter); padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); }
+/* Home hero. The two outer spacer columns keep the text on the same left edge as the rest of the page. */
+.hero { display: grid; grid-template-columns: minmax(var(--gutter), 1fr) minmax(0, calc(var(--wrap) * 0.46)) minmax(0, calc(var(--wrap) * 0.54)) minmax(0, 1fr); align-items: stretch; border-bottom: 1px solid var(--line); }
+.hero-text { grid-column: 2; display: flex; flex-direction: column; justify-content: center; padding: clamp(40px, 6vw, 88px) clamp(24px, 4vw, 56px) clamp(40px, 6vw, 88px) 0; }
+.hero-text h1 { font-size: clamp(2.3rem, 4.3vw, 3.5rem); }
 .hero-text p { font-size: 1.2rem; color: var(--muted); max-width: 30rem; }
-.hero-photo { min-height: 440px; max-height: 660px; }
+.hero-photo { grid-column: 3 / 5; min-height: 440px; max-height: 640px; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+@media (min-width: 1400px) {
+  /* Wide screens: the photo ends at the page's right edge instead of running to the edge of the window. */
+  .hero-photo { grid-column: 3; min-height: 480px; margin-block: 48px; border-radius: var(--radius); overflow: hidden; }
+}
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
+  .hero-text, .hero-photo { grid-column: 1; }
   .hero-photo { order: -1; min-height: 0; height: 56vw; max-height: 380px; }
   .hero-text { padding: 36px var(--gutter) 44px; }
 }
@@ -123,7 +129,7 @@ li { margin-bottom: 0.4em; }
 .page-head .lede { margin-bottom: 0; }
 
 /* Facts strip */
-.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0 max(0px, calc((100% - var(--wrap)) / 2 - var(--gutter))); list-style: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
 .facts li { margin: 0; padding: 26px var(--gutter); border-left: 1px solid var(--line); }
 .facts li:first-child { border-left: 0; }
 .facts b { display: block; font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 500; line-height: 1.1; font-variant-numeric: lining-nums; }
@@ -202,14 +208,14 @@ tbody th { font-weight: 600; white-space: nowrap; }
 .big-link:hover { text-decoration: underline; }
 
 /* Living here layout */
-.guide { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.guide { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(0, 48rem); gap: clamp(28px, 5vw, 72px); align-items: start; }
 .toc { position: sticky; top: 96px; font-size: 0.97rem; }
 .toc h2 { margin-bottom: 0.9em; color: var(--muted); font: 600 0.78rem var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
 .toc ol { margin: 0; padding: 0; list-style: none; border-left: 1px solid var(--line); }
 .toc li { margin: 0; }
 .toc a { display: block; margin-left: -1px; padding: 5px 0 5px 14px; border-left: 1px solid transparent; color: var(--muted); text-decoration: none; }
 .toc a:hover { border-left-color: var(--brick); color: var(--brick); }
-.topic { max-width: 44rem; padding-bottom: clamp(36px, 6vw, 56px); margin-bottom: clamp(36px, 6vw, 56px); border-bottom: 1px solid var(--line); }
+.topic { padding-bottom: clamp(36px, 6vw, 56px); margin-bottom: clamp(36px, 6vw, 56px); border-bottom: 1px solid var(--line); }
 .topic:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 .topic h3 { margin-top: 1.4em; font-size: 1.15rem; font-family: var(--sans); font-weight: 600; }
 .rule-ref { color: var(--muted); font-size: 0.9rem; }
