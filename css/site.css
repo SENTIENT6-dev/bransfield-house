@@ -9,6 +9,8 @@
   --muted: #56616b;
   --brick: #94472d;
   --brick-dark: #763622;
+  --alert: #c62828;
+  --alert-dark: #a31f1f;
   --slate: #22313d;
   --slate-soft: #c7d0d7;
 
@@ -201,8 +203,9 @@ tbody th { font-weight: 600; white-space: nowrap; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
 /* Jump link to the emergencies panel (contact page) */
-.emergency-jump { display: inline-flex; align-items: center; gap: 10px; margin-top: 1.5em; padding: 12px 20px; border-radius: 999px; background: var(--brick); color: #fff; font-weight: 600; text-decoration: none; }
-.emergency-jump:hover { background: var(--brick-dark); color: #fff; }
+.emergency-jump { display: inline-flex; align-items: center; gap: 9px; margin-top: 1.5em; padding: 12px 20px; border-radius: 999px; background: var(--alert); color: #fff; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.emergency-jump:hover { background: var(--alert-dark); color: #fff; }
+.emergency-jump svg { flex: none; }
 .emergency-jump span { font-size: 1.25em; line-height: 1; }
 
 /* Emergencies panel (contact page) */
