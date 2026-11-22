@@ -131,3 +131,16 @@
     });
   });
 })();
+
+// Emergency button: pulse the halo around the emergencies panel every time it is used, including repeat clicks.
+(function () {
+  var panel = document.getElementById('emergencies');
+  if (!panel) return;
+  Array.prototype.forEach.call(document.querySelectorAll('a[href$="#emergencies"]'), function (a) {
+    a.addEventListener('click', function () {
+      panel.classList.remove('arrived');
+      void panel.offsetWidth;            // let the browser register the removal so the animation starts over
+      panel.classList.add('arrived');
+    });
+  });
+})();
